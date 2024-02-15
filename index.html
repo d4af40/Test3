@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Chatting Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #messages {
+      list-style-type: none;
+      padding: 0;
+    }
+    #messages li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <ul id="messages"></ul>
+  <input type="text" id="messageInput" placeholder="Type your message here..." />
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    function sendMessage() {
+      const message = document.getElementById("messageInput").value;
+      if (message.trim() !== "") {
+        const item = document.createElement("li");
+        item.appendChild(document.createTextNode(message));
+        document.getElementById("messages").appendChild(item);
+
+        document.getElementById("messageInput").value = "";
+      }
+    }
+  </script>
+</body>
+</html>
